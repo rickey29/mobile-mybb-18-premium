@@ -1,0 +1,28 @@
+step 0:
+================
+Assume your MyBB 1.8 web site is located in: "http://yoursite.com".
+
+step 1:
+================
+Extract MMyBB18P zip package on your PC, you will get a "mmybb18p" directory.
+
+step 2:
+================
+Upload following directory and files from the "mmybb18p" directory to your web site:
+-- inc/languages/english/mmybb18p.lang.php
+-- inc/plugins/mmybb18p
+-- inc/plugins/mmybb18p.php
+
+If you have other language(s) than English, please update your language file(s) as I do for "inc/languages/english/mmybb18p.lang.php".
+
+step 3:
+================
+Go to MyBB 1.8 "Administration Control Panel", select "Plugins" menu of "Configuration" category, click "Activate" to activate "Mobile MyBB 1.8 Premium".
+
+step 4:
+================
+Set up a sub-domain, such as: "http://m.yoursite.com", which redirects to "https://yoursite.com/?m-redirection=mobile".
+
+step 5:
+================
+End users can now get mobile-friendly style of your MyBB 1.8 from their mobile web browsers through "http://m.yoursite.com".

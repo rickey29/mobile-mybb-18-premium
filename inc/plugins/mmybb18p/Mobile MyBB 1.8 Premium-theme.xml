@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme name="Mobile MyBB 1.8 Premium" version="1812">
+	<properties>
+		<templateset><![CDATA[2]]></templateset>
+		<editortheme><![CDATA[mybb.css]]></editortheme>
+		<imgdir><![CDATA[images]]></imgdir>
+		<logo><![CDATA[images/logo.png]]></logo>
+		<tablespace><![CDATA[5]]></tablespace>
+		<borderwidth><![CDATA[0]]></borderwidth>
+		<color><![CDATA[]]></color>
+		<disporder><![CDATA[a:7:{s:10:"global.css";i:1;s:10:"usercp.css";i:2;s:9:"modcp.css";i:3;s:16:"star_ratings.css";i:4;s:14:"showthread.css";i:5;s:17:"thread_status.css";i:6;s:8:"css3.css";i:7;}]]></disporder>
+	</properties>
+	<stylesheets>
+	</stylesheets>
+	<templates>
+		<template name="announcement" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$lang->forum_announcement}</title>
+{$headerinclude}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$lang->forum_announcement}</li>
+{$announcement}
+</ul>
+{$footer}
+</body>
+</html>]]></template>
+		<template name="changeuserbox" version="1812"><![CDATA[]]></template>
+		<template name="error" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$title}</title>
+{$headerinclude}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$title}</li>
+<li class="ui-li ui-li-static ui-btn-up-c">
+{$error}
+</li>
+</ul>
+{$footer}
+</body>
+</html>]]></template>
+		<template name="error_nopermission" version="1812"><![CDATA[{$lang->error_nopermission_guest_1}
+<br />
+{$lang->error_nopermission_guest_2}
+<br />
+{$lang->error_nopermission_guest_3}
+<br />
+{$lang->error_nopermission_guest_4}
+<br />
+{$lang->error_nopermission_guest_5}
+</li>
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$lang->login}</li>
+<li class="ui-li ui-li-static ui-btn-up-c">
+<form action-xhr="{$mybb->settings['bburl']}/member.php" method="post" target="_top">
+<input type="hidden" name="action" value="do_login" />
+<input type="hidden" name="url" value="{$mybb->settings['homeurl2']}{$redirect_url}" />
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="username" class="ui-input-text">{$lang_username}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="username" id="username" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="password" class="ui-input-text">{$lang->password}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="password" id="password" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-type="vertical" data-mini="false" data-init-selector=":jqmData(role='controlgroup')">
+<div class="ui-controlgroup-controls">
+<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-disabled="false" class="ui-submit ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-first-child ui-last-child" aria-disabled="false">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->login}</span>
+</span>
+<input type="submit" name="submit" value="{$lang->login}" data-theme="a" class="ui-btn-hidden" data-disabled="false" />
+</div>
+</div>
+</fieldset>
+</div>
+</form>
+</li>
+<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li-has-arrow ui-li">
+<div class="ui-btn-inner ui-li">
+<div class="ui-btn-text">
+<a href="{$mybb->settings['bburl']}/member.php?action=register" class="ui-link-inherit">{$lang->need_reg}</a>
+</div>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</div>
+</li>
+<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li-has-arrow ui-li">
+<div class="ui-btn-inner ui-li">
+<div class="ui-btn-text">
+<a href="{$mybb->settings['bburl']}/member.php?action=lostpw" class="ui-link-inherit">{$lang->forgot_password}</a>
+</div>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</div>]]></template>
+		<template name="error_nopermission_loggedin" version="1812"><![CDATA[{$lang->error_nopermission_user_1}
+<br />
+{$lang->error_nopermission_user_2}
+<br />
+{$lang->error_nopermission_user_3}
+<br />
+{$lang->error_nopermission_user_4}
+<br />
+{$lang->error_nopermission_user_5}
+<br />
+{$lang->error_nopermission_user_username}]]></template>
+		<template name="footer" version="1812"><![CDATA[</div>
+</div>]]></template>
+		<template name="footer_personal" version="1812"><![CDATA[</div>
+<div data-role="footer" data-position="fixed" data-theme="c" class="ui-footer ui-bar-c ui-footer-fixed ui-panel-content-fixed-toolbar ui-panel-animate" role="contentinfo">
+<h4 class="ui-title" role="heading" aria-level="1">{$lang->personal_footer}</h4>]]></template>
+		<template name="forumbit_depth1_cat" version="1812"><![CDATA[<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$forum['name']}</li>
+{$sub_forums}]]></template>
+		<template name="forumbit_depth1_forum_lastpost" version="1812"><![CDATA[</div>
+<a href="{$lastpost_link}" data-transition="slideup" title="" class="ui-li-link-alt ui-btn ui-btn-up-c ui-btn-icon-notext" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="false" data-iconpos="notext" data-theme="c">
+<span class="ui-btn-inner">
+<span class="ui-btn-text"></span>
+<span data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="arrow-r" data-iconpos="notext" data-theme="b" title="" class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-icon-notext">
+<span class="ui-btn-inner">
+<span class="ui-btn-text"></span>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</span>
+</span>
+</span>
+</a>]]></template>
+		<template name="forumbit_depth2_cat" version="1812"><![CDATA[<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-count" data-iconpos="right" data-theme="c" data-icon="arrow-r">
+<div class="ui-btn-inner ui-li">
+<div class="ui-btn-text">
+<a href="{$forum_url}" class="ui-link-inherit">
+<h3 class="ui-li-heading">{$forum['name']}</h3>
+<p class="ui-li-desc">{$forum['description']}</p>
+<span class="ui-li-count ui-btn-up-c ui-btn-corner-all">{$threads} / {$posts}</span>
+</a>
+</div>
+{$lastpost}
+</li>]]></template>
+		<template name="forumbit_depth2_forum" version="1812"><![CDATA[<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-count" data-iconpos="right" data-theme="c" data-icon="arrow-r">
+<div class="ui-btn-inner ui-li">
+<div class="ui-btn-text">
+<a href="{$forum_url}" class="ui-link-inherit">
+<h3 class="ui-li-heading">{$forum['name']}</h3>
+<p class="ui-li-desc">{$forum['description']}</p>
+<span class="ui-li-count ui-btn-up-c ui-btn-corner-all">{$threads} / {$posts}</span>
+</a>
+</div>
+{$lastpost}
+</li>]]></template>
+		<template name="forumbit_depth2_forum_lastpost" version="1812"><![CDATA[</div>
+<a href="{$lastpost_link}" data-transition="slideup" title="" class="ui-li-link-alt ui-btn ui-btn-up-c ui-btn-icon-notext" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="false" data-iconpos="notext" data-theme="c">
+<span class="ui-btn-inner">
+<span class="ui-btn-text"></span>
+<span data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="arrow-r" data-iconpos="notext" data-theme="b" title="" class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-icon-notext">
+<span class="ui-btn-inner">
+<span class="ui-btn-text"></span>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</span>
+</span>
+</span>
+</a>]]></template>
+		<template name="forumbit_depth2_forum_lastpost_hidden" version="1812"><![CDATA[]]></template>
+		<template name="forumbit_depth2_forum_lastpost_never" version="1812"><![CDATA[<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</div>]]></template>
+		<template name="forumdisplay" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$foruminfo['name']}</title>
+{$headerinclude}
+{$rssdiscovery}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+{$subforums}
+{$threadslist}
+{$footer}
+</body>
+</html>]]></template>
+		<template name="forumdisplay_announcements" version="1812"><![CDATA[<li data-role="list-divider" data-theme="d" role="heading" class="ui-li ui-li-divider ui-bar-d">{$lang->forum_announcements}</li>
+{$announcements}]]></template>
+		<template name="forumdisplay_announcements_announcement" version="1812"><![CDATA[<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li-has-arrow ui-li">
+<div class="ui-btn-inner ui-li">
+<div class="ui-btn-text">
+<a href="{$announcement['announcementlink']}" class="ui-link-inherit">
+<h3 class="ui-li-heading">{$announcement['subject']}</h3>
+<p class="ui-li-desc">{$announcement['username']} &gt; {$postdate}</p>
+</a>
+</div>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</div>
+</li>]]></template>
+		<template name="forumdisplay_newthread" version="1812"><![CDATA[<li class="ui-li ui-li-static ui-btn-up-c">
+<div>
+<a href="newthread.php?fid={$fid}" data-role="button" data-inline="true" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-inline">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->post_thread}</span>
+</span>
+</a>
+</div>
+</li>]]></template>
+		<template name="forumdisplay_nothreads" version="1812"><![CDATA[<li class="ui-li ui-li-static ui-btn-up-c">{$lang->nothreads}</li>]]></template>
+		<template name="forumdisplay_password" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$lang->password_required}</title>
+{$headerinclude}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$lang->password_required}</li>
+{$pwnote}
+<li class="ui-li ui-li-static ui-btn-up-c">
+<form action-xhr="{$mybb->settings['homeurl2']}{$_SERVER['REQUEST_URI']}" method="post" target="_top">
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="pwverify" class="ui-input-text">{$lang->enter_password_below}<br />{$lang->forum_password_note}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="pwverify" id="pwverify" size="50" value="" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-type="vertical" data-mini="false" data-init-selector=":jqmData(role='controlgroup')">
+<div class="ui-controlgroup-controls">
+<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-disabled="false" class="ui-submit ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-first-child ui-last-child" aria-disabled="false">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->verify_forum_password}</span>
+</span>
+<input type="submit" name="submit" value="{$lang->verify_forum_password}" data-theme="a" class="ui-btn-hidden" data-disabled="false" />
+</div>
+</div>
+</fieldset>
+</div>
+</form>
+</li>
+</ul>
+{$footer}
+</body>
+</html>]]></template>
+		<template name="forumdisplay_password_wrongpass" version="1812"><![CDATA[<li data-theme="e" class="ui-li ui-li-static ui-btn-up-e">{$lang->wrong_forum_password}</li>]]></template>
+		<template name="forumdisplay_sticky_sep" version="1812"><![CDATA[<li data-role="list-divider" data-theme="d" role="heading" class="ui-li ui-li-divider ui-bar-d">{$lang->sticky_threads}</li>]]></template>
+		<template name="forumdisplay_subforums" version="1812"><![CDATA[<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$lang->sub_forums_in}</li>
+{$forums}]]></template>
+		<template name="forumdisplay_thread" version="1812"><![CDATA[<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="false" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li ui-li-has-alt ui-li-has-count">
+<div class="ui-btn-inner ui-li ui-li-has-alt">
+<div class="ui-btn-text">
+<a href="{$thread['threadlink']}" class="ui-link-inherit">
+<h3 class="ui-li-heading">{$thread['subject']}</h3>
+<p class="ui-li-desc">{$thread['threadusername']} &gt; {$lastpostdate}</p>
+<span class="ui-li-count ui-btn-up-c ui-btn-corner-all">{$thread['replies']} / {$thread['views']}</span>
+</a>
+</div>
+</div>
+<a href="{$thread['lastpostlink']}" data-transition="slideup" title="" class="ui-li-link-alt ui-btn ui-btn-up-c ui-btn-icon-notext" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="false" data-iconpos="notext" data-theme="c">
+<span class="ui-btn-inner">
+<span class="ui-btn-text"></span>
+<span data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="arrow-r" data-iconpos="notext" data-theme="b" title="" class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-icon-notext">
+<span class="ui-btn-inner">
+<span class="ui-btn-text"></span>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</span>
+</span>
+</span>
+</a>
+</li>]]></template>
+		<template name="forumdisplay_threadlist" version="1812"><![CDATA[{$newthread}
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$foruminfo['name']}</li>
+{$announcementlist}
+{$threads}
+</ul>
+{$multipage}]]></template>
+		<template name="forumdisplay_threads_sep" version="1812"><![CDATA[<li data-role="list-divider" data-theme="d" role="heading" class="ui-li ui-li-divider ui-bar-d">{$lang->normal_threads}</li>]]></template>
+		<template name="global_moderation_notice" version="1812"><![CDATA[<li class="ui-li ui-li-static ui-btn-up-c">{$moderation_text}</li>]]></template>
+		<template name="header" version="1812"><![CDATA[<amp-sidebar id="sidebar" layout="nodisplay" class="ui-page ui-body-c ui-page-header-fixed ui-page-footer-fixed ui-page-panel ui-page-active">
+<div data-role="panel" data-display="overlay" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-body-c ui-panel-animate ui-panel-open">
+<div class="ui-panel-inner">
+<ul data-role="listview" class="ui-listview">
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$lang->options}</li>
+{$welcomeblock}
+<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li-has-arrow ui-li">
+<div class="ui-btn-inner ui-li">
+<div class="ui-btn-text">
+<a href="{$mybb->settings['bburl']}/index.php?m-redirection=desktop" class="ui-link-inherit">{$lang->desktop_style}</a>
+</div>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</amp-sidebar>
+<div data-role="page" class="ui-page ui-body-c ui-page-header-fixed ui-page-footer-fixed ui-page-panel ui-page-active" id="page-style">
+<div data-role="header" data-position="fixed" class="ui-header ui-bar-a ui-header-fixed ui-panel-content-fixed-toolbar ui-panel-animate" role="banner">
+<button on="tap:sidebar.toggle" data-icon="bars" class="ui-btn-left ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-btn-icon-left" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->options}</span>
+<span class="ui-icon ui-icon-bars ui-icon-shadow">&nbsp;</span>
+</span>
+</button>
+<h1 class="ui-title" role="heading" aria-level="1">{$mybb->settings['bbname']}</h1>
+</div>
+<div data-role="content" class="ui-content" role="main">
+<ul data-role="listview" class="ui-listview">
+{$header_personal}
+<navigation>]]></template>
+		<template name="headerinclude" version="1812"><![CDATA[<link rel="alternate" type="application/rss+xml" title="{$lang->latest_threads} (RSS 2.0)" href="{$mybb->settings['bburl']}/syndication.php" />
+<link rel="alternate" type="application/atom+xml" title="{$lang->latest_threads} (Atom 1.0)" href="{$mybb->settings['bburl']}/syndication.php?type=atom1.0" />
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta charset="{$charset}">
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<link rel="canonical" href="{$mybb->settings['canonical_url']}" />
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+<style amp-custom>
+</style>]]></template>
+		<template name="header_personal" version="1812"><![CDATA[<li class="ui-li ui-li-static ui-btn-up-c">
+{$lang->personal_header}
+</li>]]></template>
+		<template name="header_welcomeblock_guest" version="1812"><![CDATA[<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li-has-arrow ui-li">
+<div class="ui-btn-inner ui-li">
+<div class="ui-btn-text">
+<a href="{$mybb->settings['bburl']}/member.php?action=login" class="ui-link-inherit">{$lang->welcome_login}</a>
+</div>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</div>
+</li>
+<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li-has-arrow ui-li">
+<div class="ui-btn-inner ui-li">
+<div class="ui-btn-text">
+<a href="{$mybb->settings['bburl']}/member.php?action=register" class="ui-link-inherit">{$lang->welcome_register}</a>
+</div>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</div>
+</li>]]></template>
+		<template name="header_welcomeblock_member" version="1812"><![CDATA[<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li-has-arrow ui-li">
+<div class="ui-btn-inner ui-li">
+<div class="ui-btn-text">
+<a href="{$mybb->settings['bburl']}/member.php?action=logout&amp;logoutkey={$mybb->user['logoutkey']}" class="ui-link-inherit">{$lang->welcome_logout}</a>
+</div>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</div>
+</li>]]></template>
+		<template name="htmldoctype" version="1812"><![CDATA[<!doctype html>]]></template>
+		<template name="index" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$mybb->settings['bbname']}</title>
+{$headerinclude}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+{$forums}
+</ul>
+{$footer_personal}
+{$footer}
+</body>
+</html>]]></template>
+		<template name="loginbox" version="1812"><![CDATA[<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="username" class="ui-input-text">{$lang->username}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="username" id="username" size="30" value="{$username}" class="ui-input-text ui-body-c" />
+</div>
+</div>]]></template>
+		<template name="member_loggedin_notice" version="1812"><![CDATA[<li class="ui-li ui-li-static ui-btn-up-c">{$lang->already_logged_in}</li>]]></template>
+		<template name="member_login" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$lang->login}</title>
+{$headerinclude}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$lang->login}</li>
+{$inline_errors}
+{$member_loggedin_notice}
+<li class="ui-li ui-li-static ui-btn-up-c">
+<form action-xhr="{$mybb->settings['bburl']}/member.php" method="post" target="_top">
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="username" class="ui-input-text">{$lang->username}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="username" id="username" size="25" value="{$username}" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="password" class="ui-input-text">{$lang->password}<br />{$lang->pw_note}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="password" id="password" size="25" value="{$password}" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<input type="hidden" name="remember" value="yes" />
+{$captcha}
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-type="vertical" data-mini="false" data-init-selector=":jqmData(role='controlgroup')">
+<div class="ui-controlgroup-controls">
+<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-disabled="false" class="ui-submit ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-first-child ui-last-child" aria-disabled="false">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">Login</span>
+</span>
+<input type="submit" name="submit" value="{$lang->login}" data-theme="a" class="ui-btn-hidden" data-disabled="false">
+</div>
+</div>
+</fieldset>
+</div>
+<input type="hidden" name="action" value="do_login" />
+<input type="hidden" name="url" value="{$redirect_url}" />
+</form>
+</li>
+<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li-has-arrow ui-li ui-last-child">
+<div class="ui-btn-inner ui-li">
+<div class="ui-btn-text">
+<a href="member.php?action=lostpw" rel="external" class="ui-link-inherit">{$lang->lostpw_note}</a>
+</div>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</div>
+</li>
+</ul>
+{$footer}
+</body>
+</html>]]></template>
+		<template name="member_lostpw" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$lang->lost_pw}</title>
+{$headerinclude}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$lang->lost_pw_form}</li>
+<li class="ui-li ui-li-static ui-btn-up-c">
+<form action-xhr="{$mybb->settings['bburl']}/member.php" method="post" target="_top">
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="email" class="ui-input-text">{$lang->email_address}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="email" id="email" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-type="vertical" data-mini="false" data-init-selector=":jqmData(role='controlgroup')">
+<div class="ui-controlgroup-controls">
+<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-disabled="false" class="ui-submit ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-first-child ui-last-child" aria-disabled="false">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->request_user_pass}</span>
+</span>
+<input type="submit" value="{$lang->request_user_pass}" data-theme="a" class="ui-btn-hidden" data-disabled="false" />
+</div>
+</div>
+</fieldset>
+</div>
+<input type="hidden" name="action" value="do_lostpw" />
+</form>
+</li>
+</ul>
+{$footer}
+</body>
+</html>]]></template>
+		<template name="member_register" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$lang->registration}</title>
+{$headerinclude}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$lang->registration}</li>
+{$regerrors}
+<li class="ui-li ui-li-static ui-btn-up-c">
+<form action-xhr="{$mybb->settings['bburl']}/member.php" method="post" id="registration_form" target="_top">
+<input type="hidden" name="regcheck1" value="" />
+<input type="hidden" name="regcheck2" value="true" />
+<legend>{$lang->account_details}</legend>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="username" class="ui-input-text">{$lang->username}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="username" id="username" value="{$username}" class="ui-input-text ui-body-c" />
+</div>
+</div>
+{$passboxes}
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="email" class="ui-input-text">{$lang->email}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="email" id="email" maxlength="50" value="{$email}" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="email2" class="ui-input-text">{$lang->confirm_email}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="email2" id="email2" maxlength="50" value="{$email2}" class="ui-input-text ui-body-c" />
+</div>
+</div>
+{$regimage}
+{$questionbox}
+<input type="hidden" name="allownotices" value="1" />
+<input type="hidden" name="hideemail" value="0" />
+<input type="hidden" name="receivepms" value="1" />
+<input type="hidden" name="pmnotice" value="1" />
+<input type="hidden" name="pmnotify" value="0" />
+<input type="hidden" name="invisible" value="0" />
+<input type="hidden" name="regtime" value="{$time}" />
+<input type="hidden" name="step" value="registration" />
+<input type="hidden" name="action" value="do_register" />
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-type="vertical" data-mini="false" data-init-selector=":jqmData(role='controlgroup')">
+<div class="ui-controlgroup-controls">
+<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-disabled="false" class="ui-submit ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-first-child ui-last-child" aria-disabled="false">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->submit_registration}</span>
+</span>
+<input type="submit" name="regsubmit" value="{$lang->submit_registration}" data-theme="a" class="ui-btn-hidden" data-disabled="false" />
+</div>
+</div>
+</fieldset>
+</div>
+</form>
+</li>
+</ul>
+{$footer}
+</body>
+</html>]]></template>
+		<template name="member_register_agreement" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$lang->agreement}</title>
+{$headerinclude}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$lang->agreement}</li>
+<li class="ui-li ui-li-static ui-btn-up-c">
+<div>
+{$lang->agreement_1}
+<br />
+{$lang->agreement_2}
+<br />
+{$lang->agreement_3}
+<br />
+{$lang->agreement_4}
+<br />
+{$lang->agreement_5}
+</div>
+</li>
+<li class="ui-li ui-li-static ui-btn-up-c">
+<form action-xhr="{$mybb->settings['bburl']}/member.php" method="post" target="_top">
+<input type="hidden" name="step" value="agreement" />
+<input type="hidden" name="action" value="register" />
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-type="vertical" data-mini="false" data-init-selector=":jqmData(role='controlgroup')">
+<div class="ui-controlgroup-controls">
+<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-disabled="false" class="ui-submit ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-first-child ui-last-child" aria-disabled="false">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->i_agree}</span>
+</span>
+<input type="submit" name="submit" value="{$lang->i_agree}" data-theme="a" class="ui-btn-hidden" data-disabled="false" />
+</div>
+</div>
+</fieldset>
+</div>
+<input type="hidden" name="agree" value="{$lang->i_agree}" />
+</form>
+</li>
+</ul>
+{$footer}
+</body>
+</html>]]></template>
+		<template name="member_register_language" version="1812"><![CDATA[<legend>{$lang->lang_select}</legend>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="language" class="select ui-select">{$lang->lang_select_desc}</label>
+<div class="ui-select">
+<a href="#language-listbox" role="button" id="language-button" aria-haspopup="true" aria-owns="language-menu" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="arrow-d" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-btn-icon-right">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">
+<span>{$lang->lang_select_default}</span>
+</span>
+<span class="ui-icon ui-icon-arrow-d ui-icon-shadow">&nbsp;</span>
+</span>
+</a>
+<select name="language" id="language" data-native-menu="false" tabindex="-1">
+<option value="" data-placeholder="true">{$lang->lang_select_default}</option>
+<option value="">-----------</option>
+{$langoptions}
+</select>
+<div style="display: none;"></div>
+</div>
+</div>]]></template>
+		<template name="member_register_password" version="1812"><![CDATA[<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="password" class="ui-input-text">{$lang->password}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="password" id="password" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="password2" class="ui-input-text">{$lang->confirm_password}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="password2" id="password2" class="ui-input-text ui-body-c" />
+</div>
+</div>]]></template>
+		<template name="member_register_question" version="1812"><![CDATA[<legend>{$lang->security_question}</legend>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="answer" class="ui-input-text">{$question['question']}<br />{$lang->question_note}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="answer" value="" id="answer" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<input type="hidden" name="question_id" value="{$sid}" id="question_id" />]]></template>
+		<template name="member_register_regimage" version="1812"><![CDATA[<legend>{$lang->image_verification}</legend>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="imagestring" class="ui-input-text">{$lang->verification_note}<br />{$lang->verification_subnote}</label>
+<amp-img src="{$mybb->settings['bburl']}/captcha.php?action=regimage&amp;imagehash={$imagehash}" alt="{$lang->image_verification}" id="captcha_img" width="200" height="60" layout="responsive"></amp-img>
+<label for="imagestring" class="ui-input-text"></label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="imagestring" value="" id="imagestring" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<input type="hidden" name="imagehash" value="{$imagehash}" id="imagehash" />]]></template>
+		<template name="multipage" version="1812"><![CDATA[</div>
+<div data-role="footer" data-id="foo1" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup ui-panel-content-fixed-toolbar ui-panel-animate ui-panel-content-fixed-toolbar-closed" role="contentinfo">
+<div data-role="navbar" class="ui-navbar ui-mini" role="navigation">
+<ul class="ui-grid-c">
+{$start}
+{$prevpage}
+{$nextpage}
+{$end}
+</ul>
+</div>]]></template>
+		<template name="multipage_end" version="1812"><![CDATA[<li class="ui-block-d">
+<a href="{$page_url}" class="ui-btn-active ui-btn ui-btn-up-a ui-btn-inline" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-inline="true">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->multipage_last}</span>
+</span>
+</a>
+</li>]]></template>
+		<template name="multipage_nextpage" version="1812"><![CDATA[<li class="ui-block-c">
+<a href="{$page_url}" class="ui-btn-active ui-btn ui-btn-up-a ui-btn-inline" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-inline="true">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->multipage_next}</span>
+</span>
+</a>
+</li>]]></template>
+		<template name="multipage_prevpage" version="1812"><![CDATA[<li class="ui-block-b">
+<a href="{$page_url}" class="ui-btn-active ui-btn ui-btn-up-a ui-btn-inline" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-inline="true">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->multipage_previous}</span>
+</span>
+</a>
+</li>]]></template>
+		<template name="multipage_start" version="1812"><![CDATA[<li class="ui-block-a">
+<a href="{$page_url}" class="ui-btn-active ui-btn ui-btn-up-a ui-btn-inline" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-inline="true">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->multipage_first}</span>
+</span>
+</a>
+</li>]]></template>
+		<template name="nav" version="1812"><![CDATA[<li class="ui-li ui-li-static ui-btn-up-c">
+<div data-role="collapsible" data-mini="true" data-theme="b" data-content-theme="d" class="ui-collapsible ui-collapsible-inset ui-corner-all ui-collapsible-themed-content">
+<amp-accordion>
+<section>
+<h4 class="ui-collapsible-heading ui-li-heading">
+<div class="ui-btn ui-mini ui-btn-icon-left ui-btn-up-b" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="b" data-mini="true">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->index}<span class="ui-collapsible-heading-status"></span></span>
+<span class="ui-icon ui-icon-shadow ui-icon-minus">&nbsp;</span>
+</span>
+</div>
+</h4>
+<div class="ui-collapsible-content ui-body-d" aria-hidden="false">
+<ul data-role="listview" class="ui-listview">
+{$nav}
+{$activebit}
+</ul>
+</div>
+</section>
+</amp-accordion>
+</div>
+</li>]]></template>
+		<template name="nav_bit" version="1812"><![CDATA[<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="d" class="ui-btn ui-btn-up-d ui-btn-icon-right ui-li-has-arrow ui-li">
+<div class="ui-btn-inner ui-li">
+<div class="ui-btn-text">
+<a href="{$navbit['url']}" class="ui-link-inherit">{$navbit['name']}</a>
+</div>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</div>
+</li>]]></template>
+		<template name="nav_bit_active" version="1812"><![CDATA[<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="d" class="ui-btn ui-btn-up-d ui-btn-icon-right ui-li-has-arrow ui-li">
+<div class="ui-btn-inner ui-li">
+<div class="ui-btn-text">
+<a href="{$navbit['url']}" class="ui-link-inherit">{$navbit['name']}</a>
+</div>
+<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+</div>
+</li>]]></template>
+		<template name="newreply" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$lang->post_reply_to}</title>
+{$headerinclude}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$lang->post_new_reply}</li>
+<li data-role="list-divider" data-theme="d" role="heading" class="ui-li ui-li-divider ui-bar-d">{$lang->reply_to}</li>
+{$reply_errors}
+{$moderation_notice}
+<li class="ui-li ui-li-static ui-btn-up-c">
+<form action-xhr="{$mybb->settings['bburl']}/newreply.php?tid={$tid}&amp;processed=1" method="post" enctype="multipart/form-data" name="input" target="_top">
+<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
+{$loginbox}
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="subject" class="ui-input-text">{$lang->post_subject}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="subject" id="subject" size="40" maxlength="85" value="{$subject}" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="message" class="ui-input-text">{$lang->your_message}</label>
+<textarea name="message" id="message" rows="20" cols="70" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">{$message}</textarea>
+</div>
+{$captcha}
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-type="vertical" data-mini="false" data-init-selector=":jqmData(role='controlgroup')">
+<div class="ui-controlgroup-controls">
+<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-disabled="false" class="ui-submit ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-first-child ui-last-child" aria-disabled="false">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->post_reply}</span>
+</span>
+<input type="submit" name="submit" value="{$lang->post_reply}" data-theme="a" class="ui-btn-hidden" data-disabled="false" />
+</div>
+</div>
+</fieldset>
+</div>
+<input type="hidden" name="action" value="do_newreply" />
+<input type="hidden" name="replyto" value="{$replyto}" />
+<input type="hidden" name="posthash" value="{$posthash}" />
+<input type="hidden" name="attachmentaid" value="" />
+<input type="hidden" name="attachmentact" value="" />
+<input type="hidden" name="quoted_ids" value="{$quoted_ids}" />
+<input type="hidden" name="tid" value="{$tid}" />
+</form>
+</li>
+</ul>
+{$footer}
+</body>
+</html>]]></template>
+		<template name="newthread" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$lang->newthread_in}</title>
+{$headerinclude}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$lang->post_new_thread}</li>
+{$thread_errors}
+{$moderation_notice}
+<li class="ui-li ui-li-static ui-btn-up-c">
+<form action-xhr="{$mybb->settings['bburl']}/newthread.php?fid={$fid}&amp;processed=1" method="post" enctype="multipart/form-data" name="input" target="_top">
+<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
+{$loginbox}
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="subject" class="ui-input-text">{$lang->thread_subject}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="subject" id="subject" size="40" maxlength="85" value="{$subject}" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="message" class="ui-input-text">{$lang->your_message}</label>
+<textarea name="message" id="message" rows="20" cols="70" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">{$message}</textarea>
+</div>
+{$captcha}
+<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-type="vertical" data-mini="false" data-init-selector=":jqmData(role='controlgroup')">
+<div class="ui-controlgroup-controls">
+<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-disabled="false" class="ui-submit ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-first-child ui-last-child" aria-disabled="false">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->post_thread}</span>
+</span>
+<input type="submit" name="submit" value="{$lang->post_thread}" data-theme="a" class="ui-btn-hidden" data-disabled="false" />
+</div>
+</div>
+</fieldset>
+</div>
+<input type="hidden" name="action" value="do_newthread" />
+<input type="hidden" name="posthash" value="{$posthash}" />
+<input type="hidden" name="attachmentaid" value="" />
+<input type="hidden" name="attachmentact" value="" />
+<input type="hidden" name="quoted_ids" value="{$quoted_ids}" />
+<input type="hidden" name="tid" value="{$tid}" />
+</form>
+</li>
+</ul>
+{$footer}
+</body>
+</html>]]></template>
+		<template name="postbit" version="1812"><![CDATA[<li class="ui-li ui-li-static ui-btn-up-c">
+<div id="pid{$post['pid']}">
+{$ignore_bit}
+<h3 class="ui-li-heading">{$post['subject']}</h3>
+<p class="ui-li-desc">{$post['username']} &gt; {$post['postdate']}</p>
+<div>
+{$post['message']}
+</div>
+</div>
+</li>]]></template>
+		<template name="postbit_ignored" version="1812"><![CDATA[]]></template>
+		<template name="post_captcha" version="1812"><![CDATA[<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+<label for="imagestring" class="ui-input-text">{$lang->image_verification}</label>
+<amp-img src="{$mybb->settings['bburl']}/captcha.php?imagehash={$imagehash}" alt="{$lang->image_verification}" id="captcha_img" width="200" height="60" layout="responsive"></amp-img>
+<label for="imagestring" class="ui-input-text">{$lang->verification_note}<br />{$lang->verification_subnote}</label>
+<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+<input type="text" name="imagestring" value="" id="imagestring" size="16" class="ui-input-text ui-body-c" />
+</div>
+</div>
+<input type="hidden" name="imagehash" value="{$imagehash}" id="imagehash" />]]></template>
+		<template name="redirect" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$title}</title>
+{$headerinclude}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$title}</li>
+<li class="ui-li ui-li-static ui-btn-up-c ui-last-child">
+<div>
+{$message}
+<a href="{$url}" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->click_no_wait}</span>
+</span>
+</a>
+</div>
+</li>
+</ul>
+{$footer}
+</body>
+</html>]]></template>
+		<template name="showthread" version="1812"><![CDATA[<html class="ui-mobile">
+<head>
+<title>{$thread['subject']}</title>
+{$headerinclude}
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+{$header}
+{$newreply}
+<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">{$thread['subject']}</li>
+{$posts}
+<li class="ui-li ui-li-static ui-btn-up-c">
+<div>
+<a href="{$next_oldest_link}" data-role="button" data-inline="true" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-inline">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->next_oldest}</span>
+</span>
+</a>
+<a href="{$next_newest_link}" data-role="button" data-inline="true" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-inline">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->next_newest}</span>
+</span>
+</a>
+</div>
+</li>
+</ul>
+{$multipage}
+{$footer}
+</body>
+</html>]]></template>
+		<template name="showthread_newreply" version="1812"><![CDATA[<li class="ui-li ui-li-static ui-btn-up-c">
+<div>
+<a href="newreply.php?tid={$tid}" data-role="button" data-inline="true" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-inline">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->new_reply}</span>
+</span>
+</a>
+</div>
+</li>]]></template>
+		<template name="showthread_newreply_closed" version="1812"><![CDATA[<li class="ui-li ui-li-static ui-btn-up-c">
+<div>
+<a href="newreply.php?tid={$tid}" data-role="button" data-inline="true" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-inline">
+<span class="ui-btn-inner">
+<span class="ui-btn-text">{$lang->thread_closed}</span>
+</span>
+</a>
+</div>
+</li>]]></template>
+	</templates>
+</theme>
